@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -16,7 +15,7 @@ const Welcome = () => {
     // Simulate app initialization
     setTimeout(() => {
       toast({
-        title: "Welcome to RenaultDiag+",
+        title: "Welcome to AutoDiag+",
         description: "Your smart diagnostic tool is ready",
       });
       navigate('/dashboard');
@@ -70,4 +69,3 @@ const Welcome = () => {
 };
 
 export default Welcome;
-
