@@ -17,6 +17,7 @@ import History from "./pages/History";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/layout/Layout";
 import DiagnosticDetails from "./pages/DiagnosticDetails";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
                 <Route path="/vehicle" element={<VehicleDetails />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/diagnostic/:id" element={<DiagnosticDetails />} />
+                <Route path="/profile" element={<Profile />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
