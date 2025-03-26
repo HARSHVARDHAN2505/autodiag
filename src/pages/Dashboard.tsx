@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
+import { useNavigation } from '@/context/NavigationContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -25,6 +27,7 @@ const itemVariants = {
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const { setCurrentScan } = useNavigation();
   
   const vehicleStatus = {
     engineRpm: 2500,
@@ -35,16 +38,22 @@ const Dashboard = () => {
   
   const diagnosticResults = [
     { 
+      id: 'engine-performance',
       system: 'Engine Performance', 
       status: 'normal', 
       message: 'Operating within normal parameters'
     },
     { 
+      id: 'brake-system',
       system: 'Brake System', 
       status: 'warning', 
       message: 'Brake pad replacement recommended'
     }
   ];
+
+  const handleDiagnosticClick = (diagnostic) => {
+    navigate(`/diagnostic/${diagnostic.id}`, { state: { diagnostic } });
+  };
   
   return (
     <motion.div
@@ -142,7 +151,12 @@ const Dashboard = () => {
             {diagnosticResults.map((result, index) => (
               <div 
                 key={index} 
-                className="p-3 rounded-lg bg-diag-dark/50 flex items-center space-x-3"
+                className={cn(
+                  "p-3 rounded-lg bg-diag-dark/50 flex items-center space-x-3 cursor-pointer transition-colors hover:bg-diag-dark/70",
+                  result.status === 'normal' ? "border-green-900/30" : "border-amber-900/30",
+                  "border"
+                )}
+                onClick={() => handleDiagnosticClick(result)}
               >
                 <div className={cn(
                   "w-8 h-8 rounded-full flex items-center justify-center",

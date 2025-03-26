@@ -16,6 +16,7 @@ import VehicleDetails from "./pages/VehicleDetails";
 import History from "./pages/History";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/layout/Layout";
+import DiagnosticDetails from "./pages/DiagnosticDetails";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
                 <Route path="/results/:scanId" element={<ScanResults />} />
                 <Route path="/vehicle" element={<VehicleDetails />} />
                 <Route path="/history" element={<History />} />
+                <Route path="/diagnostic/:id" element={<DiagnosticDetails />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
