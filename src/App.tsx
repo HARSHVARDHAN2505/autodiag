@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import Layout from "./components/layout/Layout";
 import DiagnosticDetails from "./pages/DiagnosticDetails";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
                 <Route path="/history" element={<History />} />
                 <Route path="/diagnostic/:id" element={<DiagnosticDetails />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/settings" element={<Settings />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
