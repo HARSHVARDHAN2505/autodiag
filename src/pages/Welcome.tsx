@@ -28,7 +28,7 @@ const Welcome = () => {
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/lovable-uploads/d8abd9be-8f06-4602-a538-fcf9b3119a06.png" 
+          src="/lovable-uploads/925a323e-da6f-4ae3-bacd-b54cf07f6cde.png" 
           alt="Car" 
           className="w-full h-full object-cover object-center"
         />
@@ -70,3 +70,4 @@ const Welcome = () => {
 };
 
 export default Welcome;
+
