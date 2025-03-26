@@ -56,7 +56,7 @@ const DiagnosticDetails = () => {
     };
     
     return diagnosticData[id] || {
-      id: id,
+      id: id || 'unknown',
       system: 'Unknown System',
       status: 'normal',
       message: 'No information available',
@@ -68,6 +68,24 @@ const DiagnosticDetails = () => {
   const handleBack = () => {
     navigate(previousPage || '/dashboard');
   };
+  
+  // If diagnostic is null or undefined for some reason, provide a fallback
+  if (!diagnostic) {
+    return (
+      <motion.div 
+        className="flex flex-col items-center justify-center h-full p-4 text-center"
+        variants={pageVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <AlertTriangle size={48} className="text-amber-500 mb-4" />
+        <h1 className="text-xl font-bold mb-2">Diagnostic Not Found</h1>
+        <p className="text-diag-muted mb-6">The diagnostic information you're looking for couldn't be found.</p>
+        <Button onClick={handleBack}>Return to Dashboard</Button>
+      </motion.div>
+    );
+  }
   
   return (
     <motion.div
@@ -116,7 +134,7 @@ const DiagnosticDetails = () => {
           <CardTitle className="text-lg font-medium">Detailed Readings</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
-          {diagnostic.details.map((detail, index) => (
+          {(diagnostic.details || []).map((detail, index) => (
             <div 
               key={index}
               className={cn(
@@ -148,6 +166,13 @@ const DiagnosticDetails = () => {
               </div>
             </div>
           ))}
+
+          {(!diagnostic.details || diagnostic.details.length === 0) && (
+            <div className="p-4 text-center text-diag-muted">
+              <Info size={20} className="mx-auto mb-2" />
+              <p>No detailed readings available for this system.</p>
+            </div>
+          )}
         </CardContent>
       </Card>
       
