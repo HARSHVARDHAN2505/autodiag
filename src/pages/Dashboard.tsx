@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { 
@@ -28,7 +26,6 @@ const itemVariants = {
 const Dashboard = () => {
   const navigate = useNavigate();
   
-  // Mock data for vehicle status
   const vehicleStatus = {
     engineRpm: 2500,
     temperature: 82,
@@ -56,7 +53,6 @@ const Dashboard = () => {
       initial="hidden"
       animate="visible"
     >
-      {/* Header */}
       <motion.div variants={itemVariants} className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">AUTO diag+</h1>
         <div className="flex space-x-4">
@@ -73,7 +69,6 @@ const Dashboard = () => {
         </div>
       </motion.div>
       
-      {/* Vehicle Status Card */}
       <motion.div variants={itemVariants}>
         <Card className="bg-diag-card border-none shadow-lg">
           <CardHeader className="pb-2">
@@ -138,7 +133,6 @@ const Dashboard = () => {
         </Card>
       </motion.div>
       
-      {/* Diagnostic Results */}
       <motion.div variants={itemVariants}>
         <Card className="bg-diag-card border-none shadow-lg">
           <CardHeader className="pb-2">
@@ -179,7 +173,6 @@ const Dashboard = () => {
         </Card>
       </motion.div>
       
-      {/* Mechanic Info */}
       <motion.div variants={itemVariants}>
         <Card className="bg-diag-card border-none shadow-lg">
           <CardHeader className="pb-2">
@@ -190,12 +183,12 @@ const Dashboard = () => {
               <div className="w-12 h-12 bg-zinc-700 rounded-full overflow-hidden">
                 <img 
                   src="https://i.pravatar.cc/150?img=55" 
-                  alt="John Smith" 
+                  alt="Aniket Majhdoor" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div>
-                <p className="font-medium">John Smith</p>
+                <p className="font-medium">Aniket Majhdoor</p>
                 <p className="text-diag-muted text-xs">Senior Mechanic</p>
               </div>
               <div className="ml-auto flex space-x-2">
