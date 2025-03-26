@@ -66,8 +66,8 @@ const DiagnosticDetails = () => {
   }
   
   const handleBack = () => {
-    // Use previousPage from NavigationContext, fallback to dashboard if not set
-    navigate(previousPage || '/dashboard');
+    // Always navigate to dashboard when back button is clicked
+    navigate('/dashboard');
   };
   
   // If diagnostic is null or undefined for some reason, provide a fallback
