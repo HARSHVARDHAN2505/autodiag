@@ -1,4 +1,6 @@
-import { Outlet } from "react-router-dom";
+
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigation } from "@/context/NavigationContext";
 import Footer from "./Footer";
